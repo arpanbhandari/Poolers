@@ -1,3 +1,11 @@
+
+        <?php
+            //session_start();
+            //$_SESSION['source']=$_POST['source'];
+            //$_SESSION['destination']=$_POST['destination'];
+        ?>
+
+
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="bootstrap.css" media="screen">
@@ -8,17 +16,39 @@
         <script src="bootstrap.js" type="text/javascript"></script>
         <script src="bootstrap.min.js" type="text/javascript"></script>
         <script>
-            function validator(){
+            function validatorForShowOnMap(){
                 if(document.getElementById("source").value===""){
                     alert("Please enter the SOURCE!");
+                    return false;
                 }
                 
                 if(document.getElementById("destination").value===""){
                     alert("Please enter the DESTINATION!");
+                    return false;
                 }
                 
                 else{
                     calcRoute();
+                    
+                }
+            }
+        </script>
+        <script>
+            function validatorForNext(){
+                if(document.getElementById("source").value===""){
+                    alert("Please enter the SOURCE!");
+                    return false;
+                }
+                
+                if(document.getElementById("destination").value===""){
+                    alert("Please enter the DESTINATION!");
+                    return false;
+                }
+                
+                else{
+                    
+                    // window.open("setDateTime.php",'_self');
+                    return true;
                 }
             }
         </script>
@@ -136,12 +166,16 @@
         
         
         <!--FORM-->
-        <div style="height:200px; width:300px; margin-top:100px; margin-left:auto; margin-right:auto;">
-            <form name="sourceDestinationForm">
-                <input type="text" id="source" class="form-control" placeholder="Source" style="width:250px; margin-top:25px; margin-left:auto;margin-right:auto;"><br>
-                <input type="text" id="destination" class="form-control" placeholder="Destination" style="width:250px; margin-left:auto;margin-right:auto;"><br>
+        <div style="height:750px; width:300px; margin-top:100px; margin-left:auto; margin-right:auto;">
+            <form name="sourceDestinationForm" action="setDateTime.php" method="post" onsubmit="return validatorForNext()">
+                <input type="text" name="source" id="source" class="form-control" placeholder="Source" style="width:250px; margin-top:25px; margin-left:auto;margin-right:auto;"><br>
+                
+                <input type="text" name="destination" id="destination" class="form-control" placeholder="Destination" style="width:250px; margin-left:auto;margin-right:auto;"><br>
 		        
-                <input type="button" class="btn btn-info btn-md" value="Show on map!" onClick="validator()" style="width:120px; margin-left:80px;">
+                <input type="button" class="btn btn-info btn-md" value="Show on map!" onClick="validatorForShowOnMap()" style="width:120px; margin-left:80px;"><br><br>
+                <input type="submit" class="btn btn-info btn-md" value="Next" onClick="validatorForNext()"  style="width:120px; margin-left:80px;  ">
+                <br>
+                <br><div id="map-canvas"></div><br>
 	           
             </form>
         </div>
@@ -150,16 +184,13 @@
             <input type="submit" value="click here!">
         </form>
         
-        <div id="map-canvas"></div><br>
         
         
-        <div id="rides">
-            <a href="<?php echo $openid->authUrl() ?>"><input type="submit" class="btn btn-info btn-lg" value="Next" onClick="validator()" style="width:100px; margin-left:150px;  "></a>
-            
-        </div>
         
        
-    </body>
+        
+        
+     </body>
         <script type="text/javascript">
 		 var helper = (function() {
   var BASE_API_PATH = 'plus/v1/';

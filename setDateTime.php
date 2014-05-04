@@ -1,3 +1,10 @@
+        <?php
+            session_start();
+            $_SESSION['source']=$_POST['source'];
+            $_SESSION['destination']=$_POST['destination'];
+        ?>
+
+
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="bootstrap.css" media="screen">
@@ -8,106 +15,44 @@
         <script src="bootstrap.js" type="text/javascript"></script>
         <script src="bootstrap.min.js" type="text/javascript"></script>
         <script>
-            function validator(){
-                if(document.getElementById("source").value===""){
-                    alert("Please enter the SOURCE!");
+		
+            function validatorForDateTime(){
+                if(document.getElementById("date").value===""){
+                    alert("Please enter the DATE!");
+                    return false;
                 }
                 
-                if(document.getElementById("destination").value===""){
-                    alert("Please enter the DESTINATION!");
+                if(document.getElementById("time").value===""){
+                    alert("Please enter the TIME!");
+                    return false;
                 }
                 
                 else{
-                    calcRoute();
+                    //window.open("verify.php");
+                    //prompt("We need your phone number :)","");
+                    return true;
                 }
             }
         </script>
-        
-        <script
-            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
-        </script>
-        <script>
-            function initialize()
-            {
-            var mapProp = {
-              center:new google.maps.LatLng(51.508742,-0.120850),
-              zoom:5,
-              mapTypeId:google.maps.MapTypeId.ROADMAP
-              };
-            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            }
-
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+		
         
         
-        
-        <script>
-            var directionsDisplay;
-            var directionsService = new google.maps.DirectionsService();
-            var map;
-
-            function initialize() {
-              directionsDisplay = new google.maps.DirectionsRenderer();
-              var chicago = new google.maps.LatLng(12.9715990,77.5945630);
-              var mapOptions = {
-                zoom:6,
-                center: chicago
-              }
-              map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-              directionsDisplay.setMap(map);
-            }
-
-            function calcRoute() {
-              var start = document.getElementById('source').value;
-              var end = document.getElementById('destination').value;
-              var request = {
-                  origin:start,
-                  destination:end,
-                  travelMode: google.maps.TravelMode.DRIVING
-              };
-              directionsService.route(request, function(response, status) {
-                if (status == google.maps.DirectionsStatus.OK) {
-                  directionsDisplay.setDirections(response);
-                }
-              });
-            }
-
-            google.maps.event.addDomListener(window, 'load', initialize);
-
-        </script>
-        
-        <style>
-          #map-canvas {
-            height:400px; width:300px;
-            margin-left:auto; margin-right:auto;
-          }
-          #panel {
-            position: absolute;
-            top: 5px;
-            left: 50%;
-            margin-left: -180px;
-            z-index: 5;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #999;
-          }
-        </style>
-        
-        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" ></script>
         
     </head>
     
     
     
     
-    
     <body style="background-image:url('http://www.esc.cam.ac.uk/esc/images/Department/library/Areas%20Mapped%20by%20Part%20II%20Earth%20Sciences%20Students,%20Cambridge%20-%20Google%20Maps%20-%20Googl_2012-10-10_10-49-24.png'); opacity:1.5; background-size: cover; background-repeat:repeat;">
+       
         
         
-        <!--NAVBAR-->
-        <nav class="navbar navbar-inverse" role="navigation">
+        
+        
+        
+        <!-- NAVBAR -->
+         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
               <!-- Brand and toggle get grouped for better mobile display -->
                   <div class="navbar-header">
@@ -126,8 +71,6 @@
                       <li  ><a href="#">About Us</a></li>
                       <li ><a >Contact Us</a></li>
                       <li><a href="#">FAQ</a></li>
-                      <li><a href="http://www.gmail.com"><img src="picture.jpg" width="40" height="40"></a></li>    
-                      <li><a class="gb_Mb gb_Tb gb_R" id="gb_71" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://www.google.co.in/%3Fgfe_rd%3Dcr%26ei%3DMRpRU9_3JKTO8gf_woDwDA" target="_top">Sign out</a></li>
                       
                     </ul>
                   </div><!-- /.navbar-collapse -->
@@ -135,32 +78,40 @@
       </nav>
         
         
-        <!--FORM-->
-        <div style="height:200px; width:300px; margin-top:100px; margin-left:auto; margin-right:auto;">
-            <form name="sourceDestinationForm">
-                <input type="text" id="source" class="form-control" placeholder="Source" style="width:250px; margin-top:25px; margin-left:auto;margin-right:auto;"><br>
-                <input type="text" id="destination" class="form-control" placeholder="Destination" style="width:250px; margin-left:auto;margin-right:auto;"><br>
-		        
-                <input type="button" class="btn btn-info btn-md" value="Show on map!" onClick="validator()" style="width:120px; margin-left:80px;">
+        <!-- FORM -->
+
+        <div style="height:200px; width:300px; margin-top:200px; margin-left:auto; margin-right:auto;">
+            <form name="dateTimeForm" action="printResult.php" method="post" onsubmit="return validatorForDateTime()">
+                <span style="color:white; text-align:center; font-size:1.5em;">Kindly select Date and Time:</span>
+                <input type="date" class="form-control" id="date" name="date">
+                <br>
+                <input type="time" class="form-control" id="time" name="time">
+                <br>
+                
+                <div class="btn-group">
+                      <button type="button" name="shareRide" class="btn btn-default" >Share My Ride!</button>
+                      <button type="button" name="findRide" class="btn btn-default">Find Me a Ride!</button>
+                </div>
+                <br>
+                <br>
+                <input type="submit" class="btn btn-info btn-md" value="Show Summary" style="width:120px; margin-left:80px; ">
+                    
 	           
+	           
+                
             </form>
         </div>
         
-        <form action="test.php" method="post">
-            <input type="submit" value="click here!">
-        </form>
-        
-        <div id="map-canvas"></div><br>
-        
-        
-        <div id="rides">
-            <a href="<?php echo $openid->authUrl() ?>"><input type="submit" class="btn btn-info btn-lg" value="Next" onClick="validator()" style="width:100px; margin-left:150px;  "></a>
-            
-        </div>
-        
+                
        
+                    
+                
+        
+        
+        
+        
     </body>
-        <script type="text/javascript">
+	<script type="text/javascript">
 		 var helper = (function() {
   var BASE_API_PATH = 'plus/v1/';
 
@@ -288,17 +239,5 @@ function onSignInCallback(authResult) {
   helper.onSignInCallback(authResult);
 }
 	</script>
-    <script type="text/javascript">
-		  (function() {
-			var po = document.createElement('script');
-			po.type = 'text/javascript'; po.async = true;
-			po.src = 'https://plus.google.com/js/client:plusone.js';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(po, s);
-		  })();
-		</script>
-        
-        
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" ></script>
     
 </html>
