@@ -1,13 +1,3 @@
-<?php
-session_start();
-$_SESSION['date']=$_POST['date'];
-$_SESSION['time']=$_POST['time'];
-$_SESSION['typeOfPool']=$_POST['typeOfPool'];
-$_SESSION['phoneNumber']=$_POST['phoneNumber'];
-?>
-
-
-
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="bootstrap.css" media="screen">
@@ -30,7 +20,6 @@ $_SESSION['phoneNumber']=$_POST['phoneNumber'];
         
         
         
-       
         <!--NAVBAR-->
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
@@ -61,49 +50,19 @@ $_SESSION['phoneNumber']=$_POST['phoneNumber'];
         
         
         <!-- Table -->
-        <div style="height:475px; width:300px; margin-top:20px; margin-left:auto; margin-right:auto; background-color:#101010; color:#ffffff; text-align:center;border:2px solid black; border-radius:25px;">
-            <!-- Default panel contents 
-                  <div class="panel-heading">Panel heading</div>
-                  <div class="panel-body">
-                    <p>...</p>
-                  </div>-->
+        <div style="height:175px; width:350px; margin-top:150px; margin-left:auto; margin-right:auto; background-color:#101010; color:#ffffff; text-align:center;border:2px solid black; border-radius:25px;">
 
-                  <!-- Table -->
-                  <table class="table" >
-                      <caption style="text-align:center;color:white;"><b>Summary:</b></caption>
-                    <tr>
-                      <th style="color:white;">Source</td>
-                      <td style="color:white;"><?php echo $_SESSION['source'];?></td> 
-                    </tr>
-                    <br>
-                    <tr>
-                      <th style="color:white;">Destination</td>
-                      <td style="color:white;"><?php echo $_SESSION['destination'];?></td> 
-                    </tr>
-                    <br>
-                    <tr>
-                      <th style="color:white;">Date</td>
-                      <td style="color:white;"><?php echo $_SESSION['date'];?></td> 
-                    </tr>
-                    <br>
-                    <tr>
-                      <th style="color:white;">Time</td>
-                      <td style="color:white;"><?php echo $_SESSION['time'];?></td> 
-                    </tr>
-                    <tr>
-                      <th style="color:white;">Type Of Pool</td>
-                      <td style="color:white;"><?php echo $_SESSION['typeOfPool'] ?> </td> 
-                    </tr>
-                    <tr>
-                      <th style="color:white;">Phone Number</td>
-                      <td style="color:white;"><?php echo $_SESSION['phoneNumber'] ?> </td> 
-                    </tr>
-                  </table>
-<br>
-            <form action="index2.php" method="post" >
-                <span id="phoneNumber" name="phoneNumber" style="visibility:hidden"></span>
-                <input type="submit" class="btn btn-info btn-md" value="Confirm" style="width:120px; margin-left:50px; ">
-            </form>   
+            
+            <h3>Contact US</h3>
+            
+            <p style="padding:5px; text-align:center;">
+                For any queries please contact:
+                <br/>
+                <br/>
+                Abhishek Pathak - abhishek.pat94@gmail.com
+                <br/>
+                Arpan Bhandari - bhandari.arpan@gmail.com
+            </p>
         </div>
         
         

@@ -1,4 +1,5 @@
 <?php // login.php
+session_start();
 require_once 'openid.php';
 $openid = new LightOpenID("http://localhost");
 
@@ -9,9 +10,11 @@ if ($openid->mode) {
         $data = $openid->getAttributes();
         $email = $data['contact/email'];
         $first = $data['namePerson/first'];
-        echo "Identity: $openid->identity <br>";
+        $_SESSION['email'] = $email;
+        header("Location: toPush.php");
+       /* echo "Identity: $openid->identity <br>";
         echo "Email: $email <br>";
-        echo "First name: $first";
+        echo "First name: $first"; */
     } else {
         echo "The user has not logged in";
     }

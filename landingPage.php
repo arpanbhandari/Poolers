@@ -28,6 +28,7 @@
                 }
                 
                 else{
+                    
                     calcRoute();
                     
                 }
@@ -69,7 +70,7 @@
 
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
         
         
         
@@ -87,6 +88,14 @@
               }
               map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
               directionsDisplay.setMap(map);
+                var source = /** @type {HTMLInputElement} */(
+      document.getElementById('source'));
+ var autocomplete = new google.maps.places.Autocomplete(source);
+  autocomplete.bindTo('bounds', map);
+                var destination = /** @type {HTMLInputElement} */(
+      document.getElementById('destination'));
+ var autocomplete = new google.maps.places.Autocomplete(destination);
+  autocomplete.bindTo('bounds', map);
             }
 
             function calcRoute() {
@@ -147,16 +156,16 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Poolers</a>
+                    <a class="navbar-brand" href="landingPage.php">Poolers</a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <div class="collapse navbar-collapse" >
                     <ul class="nav navbar-nav navbar-right">
-                      <li  ><a href="#">About Us</a></li>
-                      <li ><a >Contact Us</a></li>
-                      <li><a href="#">FAQ</a></li>
-                      <li><a href="http://www.gmail.com"><img src="picture.jpg" width="40" height="40"></a></li>    
+                      <li  ><a href="aboutUs.html">About Us</a></li>
+                      <li ><a href="contactUs.html" >Contact Us</a></li>
+                      <li><a href="FAQ.html">FAQ</a></li>
+                       
                       <li><a class="gb_Mb gb_Tb gb_R" id="gb_71" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://www.google.co.in/%3Fgfe_rd%3Dcr%26ei%3DMRpRU9_3JKTO8gf_woDwDA" target="_top">Sign out</a></li>
                       
                     </ul>
@@ -179,10 +188,7 @@
 	           
             </form>
         </div>
-        
-        <form action="test.php" method="post">
-            <input type="submit" value="click here!">
-        </form>
+       
         
         
         

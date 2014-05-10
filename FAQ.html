@@ -1,13 +1,3 @@
-<?php
-session_start();
-$_SESSION['date']=$_POST['date'];
-$_SESSION['time']=$_POST['time'];
-$_SESSION['typeOfPool']=$_POST['typeOfPool'];
-$_SESSION['phoneNumber']=$_POST['phoneNumber'];
-?>
-
-
-
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="bootstrap.css" media="screen">
@@ -25,7 +15,6 @@ $_SESSION['phoneNumber']=$_POST['phoneNumber'];
     
     <body style="background-image:url('http://www.esc.cam.ac.uk/esc/images/Department/library/Areas%20Mapped%20by%20Part%20II%20Earth%20Sciences%20Students,%20Cambridge%20-%20Google%20Maps%20-%20Googl_2012-10-10_10-49-24.png'); opacity:1.5; background-size: cover; background-repeat:repeat;">
        
-        
         
         
         
@@ -61,49 +50,18 @@ $_SESSION['phoneNumber']=$_POST['phoneNumber'];
         
         
         <!-- Table -->
-        <div style="height:475px; width:300px; margin-top:20px; margin-left:auto; margin-right:auto; background-color:#101010; color:#ffffff; text-align:center;border:2px solid black; border-radius:25px;">
-            <!-- Default panel contents 
-                  <div class="panel-heading">Panel heading</div>
-                  <div class="panel-body">
-                    <p>...</p>
-                  </div>-->
+        <div style="height:290px; width:300px; margin-top:150px; margin-left:auto; margin-right:auto; background-color:#101010; color:#ffffff; text-align:center;border:2px solid black; border-radius:25px;">
 
-                  <!-- Table -->
-                  <table class="table" >
-                      <caption style="text-align:center;color:white;"><b>Summary:</b></caption>
-                    <tr>
-                      <th style="color:white;">Source</td>
-                      <td style="color:white;"><?php echo $_SESSION['source'];?></td> 
-                    </tr>
-                    <br>
-                    <tr>
-                      <th style="color:white;">Destination</td>
-                      <td style="color:white;"><?php echo $_SESSION['destination'];?></td> 
-                    </tr>
-                    <br>
-                    <tr>
-                      <th style="color:white;">Date</td>
-                      <td style="color:white;"><?php echo $_SESSION['date'];?></td> 
-                    </tr>
-                    <br>
-                    <tr>
-                      <th style="color:white;">Time</td>
-                      <td style="color:white;"><?php echo $_SESSION['time'];?></td> 
-                    </tr>
-                    <tr>
-                      <th style="color:white;">Type Of Pool</td>
-                      <td style="color:white;"><?php echo $_SESSION['typeOfPool'] ?> </td> 
-                    </tr>
-                    <tr>
-                      <th style="color:white;">Phone Number</td>
-                      <td style="color:white;"><?php echo $_SESSION['phoneNumber'] ?> </td> 
-                    </tr>
-                  </table>
-<br>
-            <form action="index2.php" method="post" >
-                <span id="phoneNumber" name="phoneNumber" style="visibility:hidden"></span>
-                <input type="submit" class="btn btn-info btn-md" value="Confirm" style="width:120px; margin-left:50px; ">
-            </form>   
+            <p style="text-align:center; padding:5px;">
+            <em>Q. What is a Carpool?</em>
+            <br/>
+            <br/>
+            </p>
+
+            <p style="text-align:justify; padding:5px;">A Carpool is the sharing of car journeys so that more than one person can travel in a car.
+By travelling more people using one vehicle, carpooling reduces each person's travel costs such as fuel costs, stress of driving, etc. Carpooling is also seen as a more environmental friendly and sustainable way to travel as sharing car reduces carbon emissions, traffic congestion, and the need of parking spaces.
+            </p>
+            
         </div>
         
         

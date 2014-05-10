@@ -51,8 +51,8 @@
         
         
         
-        <!-- NAVBAR -->
-         <nav class="navbar navbar-inverse" role="navigation">
+        <!--NAVBAR-->
+        <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
               <!-- Brand and toggle get grouped for better mobile display -->
                   <div class="navbar-header">
@@ -62,15 +62,17 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Poolers</a>
+                    <a class="navbar-brand" href="landingPage.php">Poolers</a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <div class="collapse navbar-collapse" >
                     <ul class="nav navbar-nav navbar-right">
-                      <li  ><a href="#">About Us</a></li>
-                      <li ><a >Contact Us</a></li>
-                      <li><a href="#">FAQ</a></li>
+                      <li  ><a href="aboutUs.html">About Us</a></li>
+                      <li ><a href="contactUs.html" >Contact Us</a></li>
+                      <li><a href="FAQ.html">FAQ</a></li>
+                       
+                      <li><a class="gb_Mb gb_Tb gb_R" id="gb_71" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://www.google.co.in/%3Fgfe_rd%3Dcr%26ei%3DMRpRU9_3JKTO8gf_woDwDA" target="_top">Sign out</a></li>
                       
                     </ul>
                   </div><!-- /.navbar-collapse -->
@@ -87,12 +89,13 @@
                 <br>
                 <input type="time" class="form-control" id="time" name="time">
                 <br>
-                
-                <div class="btn-group">
-                      <button type="button" name="shareRide" class="btn btn-default" >Share My Ride!</button>
-                      <button type="button" name="findRide" class="btn btn-default">Find Me a Ride!</button>
-                </div>
+                <select class="form-control" id="typeOfPool" name="typeOfPool">
+                    <option value="default">Select Pool Type...</option>
+                    <option value="Find Ride">Find Ride</option>
+                    <option value="Share Ride">Share Ride</option>
+                </select>
                 <br>
+                <input type="number" placeholder="Enter valid Phone number..." class="form-control" id="phoneNumber" name="phoneNumber">
                 <br>
                 <input type="submit" class="btn btn-info btn-md" value="Show Summary" style="width:120px; margin-left:80px; ">
                     
