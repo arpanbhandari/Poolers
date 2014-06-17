@@ -1,7 +1,7 @@
 <?php // login.php
 session_start();
 require_once 'openid.php';
-$openid = new LightOpenID("http://localhost");
+$openid = new LightOpenID("http://192.168.1.3");
 
 if ($openid->mode) {
     if ($openid->mode == 'cancel') {

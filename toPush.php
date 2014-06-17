@@ -26,6 +26,7 @@
 
 //$result = mysqli_query($connect,"INSERT INTO pool VALUES('abc', 123, 'src', 'dest', '01-01-01', '12:12:12', 1);");
 //$mainResult = mysqli_query($connect,"INSERT INTO pool(emailID,) VALUES('" . $email . "', " . $phoneNumber . ", '" . $source . "', '" . $destination . "', '" . $date . "', '" . $time . "', " . $typeOfPool . ");");
+$deleteExistingData = mysqli_query($connect,"DELETE FROM pool WHERE emailID='$email'");
 
 $result = mysqli_query($connect,"INSERT INTO pool VALUES('$email', '$phoneNumber', '$source', '$destination', '$date', '$time', '$typeOfPool');");
 

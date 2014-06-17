@@ -48,9 +48,8 @@
         
         
         
-        
-        <!-- NAVBAR -->
-         <nav class="navbar navbar-inverse" role="navigation">
+          <!--NAVBAR-->
+        <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
               <!-- Brand and toggle get grouped for better mobile display -->
                   <div class="navbar-header">
@@ -60,20 +59,24 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Poolers</a>
+                    <a class="navbar-brand" href="landingPage.php">Poolers</a>
                   </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <div class="collapse navbar-collapse" >
                     <ul class="nav navbar-nav navbar-right">
-                      <li  ><a href="#">About Us</a></li>
-                      <li ><a >Contact Us</a></li>
-                      <li><a href="#">FAQ</a></li>
+                      <li  ><a href="aboutUs.html">About Us</a></li>
+                      <li ><a href="contactUs.html" >Contact Us</a></li>
+                      <li><a href="FAQ.html">FAQ</a></li>
+                      <li><form action="queryPoolStatus.php"><input type="submit" value="Current Pool Status!" class="btn btn-primary" style="margin-top:8px;"></form></li>
+                       
+                      <li><a class="gb_Mb gb_Tb gb_R" id="gb_71" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://www.google.co.in/%3Fgfe_rd%3Dcr%26ei%3DMRpRU9_3JKTO8gf_woDwDA" target="_top">Sign out</a></li>
                       
                     </ul>
                   </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
-        </nav>
+      </nav>
+        
         
         <div>
             

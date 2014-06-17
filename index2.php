@@ -7,7 +7,7 @@ $_SESSION['phoneNumber'] = $_POST['phoneNumber'];
 
 <?php // index.php
 require_once 'openid.php';
-$openid = new LightOpenID("http://localhost");
+$openid = new LightOpenID("http://192.168.1.3");
 
 $openid->identity = 'https://www.google.com/accounts/o8/id';
 $openid->required = array(
@@ -15,7 +15,7 @@ $openid->required = array(
   'namePerson/last',
   'contact/email',
 );
-$openid->returnUrl = 'http://localhost/Poolers/login.php'
+$openid->returnUrl = 'http://192.168.1.3/Poolersv1/login.php'
 ?>
 
 
